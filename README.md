@@ -3,10 +3,17 @@ Java implementation to interact with new estonian id card (ID1) over PCSC channe
 
 ## Simple example to read document number and last name using first available terminal
 
+Get first terminal
 ```
-//get first terminal
 CardTerminal terminal = TerminalFactory.getDefault().terminals().list().get(0);
+```
+Get terminal by name
+```
+CardTerminal terminal = TerminalFactory.getDefault().terminals().getTerminal("OMNIKEY CardMan 1021");
+```
 
+Connect and read data
+```
 PcscChannel channel = new PcscChannel(terminal);
 EstIdCard card = new ID1(channel);
 
