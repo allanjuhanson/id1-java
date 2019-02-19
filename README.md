@@ -1,7 +1,7 @@
 # id1-java
 Java implementation to interact with new estonian id card (ID1) over PCSC channel
 
-## Simple example to read document number and last name using first available terminal
+## Simple example to read document number and last name from card
 
 Get first terminal
 ```
