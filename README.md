@@ -1,7 +1,7 @@
 # id1-java
 Java implementation to interact with new estonian id card (ID1) over PCSC channel
 
-## Simple example to read document number and last name from card
+## Simple example to read document number and name from card
 
 Get first terminal
 ```
@@ -20,7 +20,8 @@ EstIdCard card = new ID1(channel);
 if (terminal.isCardPresent()) {
     channel.connect();
     System.out.println("doc number: " + card.readDocumentNumber());
-    System.out.println("last name: " + card.readPersonalData(PersonalDataRecord.LAST_NAME).getLastName());
+    PersonalData personalData = card.readPersonalData(PersonalDataRecord.LAST_NAME, PersonalDataRecord.FIRST_NAME);
+    System.out.println("name: " + personalData.getFirstName() + " " + personalData.getLastName());
 }
 
 ```
